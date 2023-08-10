@@ -8,3 +8,7 @@ transformers
 xformers
 torch
 diffusers
+fastdownload
+torchvision
+accelerate
+ipywidgets
