@@ -12,3 +12,4 @@ fastdownload
 torchvision
 accelerate
 ipywidgets
+GPUtil
