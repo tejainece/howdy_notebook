@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "StableDiffusionPipeline",
+            "type": "debugpy",
+            "justMyCode": false,
+            "request": "launch",
+            "program": "${workspaceFolder}/_python/stable_diffusion.py"
+        },
+        {
+            "name": "ClipImage",
+            "type": "debugpy",
+            "justMyCode": false,
+            "request": "launch",
+            "program": "${workspaceFolder}/_python/clip_image.py"
+        },
+        {
+            "name": "ClipText",
+            "type": "debugpy",
+            "justMyCode": false,
+            "request": "launch",
+            "program": "${workspaceFolder}/_python/clip_text.py"
+        }
+    ]
+}
