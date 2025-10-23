@@ -5,7 +5,7 @@ pandas
 scikit-learn
 notebook
 transformers
-xformers
+#xformers
 torch
 diffusers
 fastdownload
@@ -18,3 +18,4 @@ controlnet_aux
 numba
 protobuf
 sentencepiece
+safetensors
