@@ -6,7 +6,7 @@
             "type": "debugpy",
             "justMyCode": false,
             "request": "launch",
-            "program": "${workspaceFolder}/_python/stable_diffusion.py"
+            "program": "${workspaceFolder}/_python/stable_diffusion.py",
         },
         {
             "name": "ClipImage",
