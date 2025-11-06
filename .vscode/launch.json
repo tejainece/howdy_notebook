@@ -9,6 +9,13 @@
             "program": "${workspaceFolder}/_python/stable_diffusion.py",
         },
         {
+            "name": "VAE",
+            "type": "debugpy",
+            "justMyCode": false,
+            "request": "launch",
+            "program": "${workspaceFolder}/_python/vae/vae.py",
+        },
+        {
             "name": "ClipImage",
             "type": "debugpy",
             "justMyCode": false,

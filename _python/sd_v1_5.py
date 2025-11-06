@@ -8,5 +8,7 @@ promptEncoded = pipe.encode_prompt('a photograph of an astronaut riding a horse'
 #print(promptEncoded[0].shape)
 #print(pipe.text_encoder)
 #print(pipe.unet)
-print(pipe.vae)
+print(pipe.vae.decoder)
+
+
 print('Finished!')
