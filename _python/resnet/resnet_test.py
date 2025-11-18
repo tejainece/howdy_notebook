@@ -7,6 +7,7 @@ torch.manual_seed(0)
 sample = torch.randn(1, 32, 64, 64).to(torch_device)
 temb = torch.randn(1, 128).to(torch_device)
 resnet_block = ResnetBlock2D(in_channels=32, temb_channels=128).to(torch_device)
+print(resnet_block.conv1)
 with torch.no_grad():
     output_tensor = resnet_block(sample, temb)
 
