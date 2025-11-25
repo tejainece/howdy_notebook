@@ -6,15 +6,21 @@ torch_device = "cuda" if torch.cuda.is_available() else "cpu"
 torch.manual_seed(0)
 sample = torch.randn(1, 32, 64, 64).to(torch_device)
 temb = torch.randn(1, 128).to(torch_device)
-resnet_block = ResnetBlock2D(in_channels=32, temb_channels=128).to(torch_device)
-print(resnet_block.conv1)
-with torch.no_grad():
-    output_tensor = resnet_block(sample, temb)
+resnet = ResnetBlock2D(in_channels=32, temb_channels=128).to(torch_device)
+output_tensor = resnet.forward(sample, temb)
 
-assert output_tensor.shape == (1, 32, 64, 64)
-output_slice = output_tensor[0, -1, -3:, -3:]
-expected_slice = torch.tensor(
-    [-1.9010, -0.2974, -0.8245, -1.3533, 0.8742, -0.9645, -2.0584, 1.3387, -0.4746], device=torch_device
-)
-assert torch.allclose(output_slice.flatten(), expected_slice, atol=1e-3)
+tensors = {
+    "test1.input": sample,
+    "test1.temb": temb,
+    "test1.output": output_tensor,
+    **{f"test1.{k}": v for k, v in resnet.state_dict().items()},
+}
+#print(tensors.keys())
+
+import os
+os.makedirs("test_data/resnet", exist_ok=True)
+
+from safetensors.torch import save_file
+save_file(tensors, "test_data/resnet/resnet_tests.safetensors")
+
 print("All tests passed!")

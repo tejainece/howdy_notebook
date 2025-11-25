@@ -21,5 +21,8 @@ tesnors = {
     "test1.output": weights,
 }
 
+import os
+os.makedirs("test_data/init", exist_ok=True)
+
 from safetensors.torch import save_file
-save_file(tesnors, "kaiming_uniform_tests.safetensors")
+save_file(tesnors, "test_data/init/kaiming_uniform_tests.safetensors")

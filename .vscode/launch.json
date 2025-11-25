@@ -28,6 +28,14 @@
             "justMyCode": false,
             "request": "launch",
             "program": "${workspaceFolder}/_python/clip_text.py"
-        }
+        },
+        {
+            "name": "ResnetBlock2D",
+            "type": "debugpy",
+            "justMyCode": false,
+            "request": "launch",
+            "console": "internalConsole",
+            "program": "${workspaceFolder}/_python/resnet/resnet_test.py",
+        },
     ]
 }
