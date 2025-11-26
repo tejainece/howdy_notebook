@@ -13,7 +13,7 @@ tensors = {
     "test1.input": sample,
     "test1.temb": temb,
     "test1.output": output_tensor,
-    **{f"test1.{k}": v for k, v in resnet.state_dict().items()},
+    **{f"test1.resnet.{k}": v for k, v in resnet.state_dict().items()},
 }
 #print(tensors.keys())
 

@@ -3,21 +3,21 @@ from diffusers import StableDiffusionPipeline
 from diffusers.models.resnet import ResnetBlock2D
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-print(f"Using device: {device}")
 
 model_path = "models/diffusion/v1-5-pruned-emaonly.safetensors"
 pipe = StableDiffusionPipeline.from_single_file(
     model_path,
     torch_dtype=torch.float16 if device == "cuda" else torch.float32,
 )
-resnet_block = pipe.to(device).unet.down_blocks[0].resnets[0]
+resnet: ResnetBlock2D = pipe.to(device).unet.down_blocks[0].resnets[0]
+#print(resnet)
 
 batch_size = 1
-in_channels = resnet_block.in_channels
+in_channels = resnet.in_channels
 height, width = 64, 64
 
-torch.manual_seed(42)
-sample = torch.randn(
+torch.manual_seed(41)
+input = torch.randn(
     batch_size, in_channels, height, width,
     dtype=torch.float16 if device == "cuda" else torch.float32,
     device=device
@@ -29,6 +29,22 @@ temb = torch.randn(
     device=device
 )
 
-output = resnet_block(sample, temb)
-print(output)
+output = resnet(input, temb)
+# print(output)
+
+tensors = {
+    "test2.input": input,
+    "test2.temb": temb,
+    "test2.output": output,
+    **{f"test2.resnet.{k}": v for k, v in resnet.state_dict().items()},
+}
+#print(tensors.keys())
+
+import os
+os.makedirs("test_data/resnet", exist_ok=True)
+
+from safetensors.torch import save_file
+save_file(tensors, "test_data/resnet/resnet_sd15_unet_tests.safetensors")
+
+print("\n✓ Successfully wrote resnet testcases")
 
