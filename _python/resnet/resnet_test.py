@@ -7,13 +7,14 @@ torch.manual_seed(0)
 sample = torch.randn(1, 32, 64, 64).to(torch_device)
 temb = torch.randn(1, 128).to(torch_device)
 resnet = ResnetBlock2D(in_channels=32, temb_channels=128).to(torch_device)
-output_tensor = resnet.forward(sample, temb)
+output = resnet.forward(sample, temb)
 
+name = "simple1"
 tensors = {
-    "test1.input": sample,
-    "test1.temb": temb,
-    "test1.output": output_tensor,
-    **{f"test1.resnet.{k}": v for k, v in resnet.state_dict().items()},
+    f"{name}.input": sample,
+    f"{name}.temb": temb,
+    f"{name}.output": output,
+    **{f"{name}.resnet.{k}": v for k, v in resnet.state_dict().items()},
 }
 #print(tensors.keys())
 

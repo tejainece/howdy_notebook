@@ -24,10 +24,11 @@ input = torch.randn(
 output = resnet(input, temb=None)
 #print(output)
 
+name = "vae"
 tensors = {
-    "test2.input": input,
-    "test2.output": output,
-    **{f"test2.resnet.{k}": v for k, v in resnet.state_dict().items()},
+    f"{name}.input": input,
+    f"{name}.output": output,
+    **{f"{name}.resnet.{k}": v for k, v in resnet.state_dict().items()},
 }
 #print(tensors.keys())
 

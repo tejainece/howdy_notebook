@@ -32,11 +32,12 @@ temb = torch.randn(
 output = resnet(input, temb)
 # print(output)
 
+name = "unet"
 tensors = {
-    "test2.input": input,
-    "test2.temb": temb,
-    "test2.output": output,
-    **{f"test2.resnet.{k}": v for k, v in resnet.state_dict().items()},
+    f"{name}.input": input,
+    f"{name}.temb": temb,
+    f"{name}.output": output,
+    **{f"{name}.resnet.{k}": v for k, v in resnet.state_dict().items()},
 }
 #print(tensors.keys())
 
