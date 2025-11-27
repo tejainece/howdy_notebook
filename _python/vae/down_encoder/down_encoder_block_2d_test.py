@@ -30,12 +30,13 @@ name = "simple1"
 tensors = {
     f"{name}.input": sample,
     f"{name}.output": output,
-    **{f"{name}.{k}": v for k, v in down_block.state_dict().items()}
+    **{f"{name}.block{k}": v for k, v in down_block.state_dict().items()}
 }
 
-os.makedirs("test_data/vae", exist_ok=True)
+os.makedirs("test_data/vae/down_encoder", exist_ok=True)
 
-save_path = "test_data/vae/down_encoder_block_2d.safetensors"
+save_path = "test_data/vae/down_encoder/down_encoder_simple.safetensors"
 save_file(tensors, save_path)
 
-print("All tests passed!")
+
+print("\n✓ Successfully generated DownEncoderBlock2D testcases")

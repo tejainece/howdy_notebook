@@ -38,4 +38,4 @@ os.makedirs("test_data/resnet", exist_ok=True)
 from safetensors.torch import save_file
 save_file(tensors, "test_data/resnet/resnet_sd15_vae_tests.safetensors")
 
-print("\n✓ Successfully wrote resnet testcases")
+print("\n✓ Successfully generated ResnetBlock2D vae testcases")
