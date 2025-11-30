@@ -37,5 +37,13 @@
             "console": "internalConsole",
             "program": "${workspaceFolder}/_python/resnet/resnet_test.py",
         },
+        {
+            "name": "DownSampler2DVAE",
+            "type": "debugpy",
+            "justMyCode": false,
+            "request": "launch",
+            "console": "internalConsole",
+            "program": "${workspaceFolder}/_python/vae/downsample/downsample_2d_vae_test.py",
+        },
     ]
 }
