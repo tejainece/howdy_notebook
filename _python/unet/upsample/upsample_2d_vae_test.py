@@ -1,11 +1,6 @@
 import torch
-from diffusers import StableDiffusionPipeline
-# Try to import Upsample2D, if it fails we can remove the type hint or fix import
-try:
-    from diffusers.models.upsampling import Upsample2D
-except ImportError:
-    from diffusers.models.resnet import Upsample2D
-
+from diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion import StableDiffusionPipeline
+from diffusers.models.upsampling import Upsample2D
 import os
 from safetensors.torch import save_file
 
