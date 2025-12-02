@@ -1,6 +1,6 @@
 from diffusers.models.downsampling import Downsample2D
 import torch
-from diffusers import StableDiffusionPipeline
+from diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion import StableDiffusionPipeline
 import os
 from safetensors.torch import save_file
 

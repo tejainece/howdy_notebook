@@ -1,5 +1,5 @@
 import torch
-from diffusers.models.resnet import Downsample2D
+from diffusers.models.downsampling import Downsample2D
 import os
 from safetensors.torch import save_file
 

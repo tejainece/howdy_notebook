@@ -38,6 +38,14 @@
             "program": "${workspaceFolder}/_python/resnet/resnet_test.py",
         },
         {
+            "name": "Conv2D",
+            "type": "debugpy",
+            "justMyCode": false,
+            "request": "launch",
+            "console": "internalConsole",
+            "program": "${workspaceFolder}/_python/conv2d/conv2d.py",
+        },
+        {
             "name": "DownSampler2DVAE",
             "type": "debugpy",
             "justMyCode": false,

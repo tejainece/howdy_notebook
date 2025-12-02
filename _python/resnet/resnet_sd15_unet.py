@@ -1,5 +1,5 @@
 import torch
-from diffusers import StableDiffusionPipeline
+from diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion import StableDiffusionPipeline
 from diffusers.models.resnet import ResnetBlock2D
 
 device = "cuda" if torch.cuda.is_available() else "cpu"

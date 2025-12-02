@@ -17,7 +17,7 @@ up_block = pipe.vae.decoder.up_blocks[0]
 upsample: Upsample2D = up_block.upsamplers[0].to(device)
 print(upsample)
 
-in_channels = upsample.conv.in_channels
+in_channels: int = upsample.conv.in_channels  # pyright: ignore[reportOptionalMemberAccess]
 
 input = torch.randn(1, in_channels, 64, 64).to(device=device, dtype=torch.float16 if device == "cuda" else torch.float32)
 
