@@ -22,13 +22,13 @@ down_block = DownEncoderBlock2D(
     downsample_padding=1
 ).to(torch_device)
 
-sample = torch.randn(1, in_channels, 64, 64).to(torch_device)
+input = torch.randn(1, in_channels, 64, 64).to(torch_device)
 
-output = down_block(sample)
+output = down_block(input)
 
 name = "simple1"
 tensors = {
-    f"{name}.input": sample,
+    f"{name}.input": input,
     f"{name}.output": output,
     **{f"{name}.block{k}": v for k, v in down_block.state_dict().items()}
 }

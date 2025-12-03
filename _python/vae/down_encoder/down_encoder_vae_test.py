@@ -1,6 +1,6 @@
 from diffusers.models.unets.unet_2d_blocks import DownEncoderBlock2D
 import torch
-from diffusers import StableDiffusionPipeline
+from diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion import StableDiffusionPipeline
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 

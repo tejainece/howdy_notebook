@@ -18,7 +18,7 @@ downsample: Downsample2D = down_block.downsamplers[0].to(device)
 
 print(f"Downsample block: {downsample}")
 
-in_channels = downsample.conv.in_channels
+in_channels: int = downsample.conv.in_channels  # pyright: ignore[reportAssignmentType]
 
 input = torch.randn(1, in_channels, 64, 64).to(device=device, dtype=torch.float16 if device == "cuda" else torch.float32)
 
